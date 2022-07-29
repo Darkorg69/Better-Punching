@@ -1,0 +1,29 @@
+modLoader = "javafml"
+loaderVersion = "[39,)"
+license = "MIT License"
+issueTrackerURL = "https://github.com/darkorg69/betterpunching/issues"
+
+[[mods]]
+modId = "betterpunching"
+version = "1.18-1.0.0"
+displayName = "betterpunching"
+#updateJSONURL=""
+displayURL = "https://www.curseforge.com/minecraft/mc-mods/betterpunching"
+logoFile = "betterpunching.png"
+credits = "Thanks for this mod goes to Java and the Forge Team"
+authors = "Darkorg"
+description = '''A mod, overhauling punching and breaking mechanics in a popular block game!'''
+
+[[dependencies.betterpunching]]
+modId = "forge"
+mandatory = true
+versionRange = "[39,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.betterpunching]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.18,1.19)"
+ordering = "NONE"
+side = "BOTH"
