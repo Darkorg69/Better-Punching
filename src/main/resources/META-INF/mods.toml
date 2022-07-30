@@ -6,7 +6,7 @@ issueTrackerURL = "https://github.com/darkorg69/betterpunching/issues"
 [[mods]]
 modId = "betterpunching"
 version = "1.18-1.0.0"
-displayName = "betterpunching"
+displayName = "BetterPunching"
 #updateJSONURL=""
 displayURL = "https://www.curseforge.com/minecraft/mc-mods/betterpunching"
 logoFile = "betterpunching.png"
