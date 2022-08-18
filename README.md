@@ -33,12 +33,6 @@ The Dagger is a lightweight weapon. It has 40% decreased damage, 50% less durabi
 compared to a Stone Sword.  
 ![Flint Dagger](https://i.ibb.co/PDMS5YW/flint-dagger.png)
 
-## Important
-
-* Mod configuration file is located in **saves/your_world_name/server_config**!
-* You can copy the config file from your world to the defaultconfig folder in order to keep your settings throughout new
-  worlds.
-
 ## Issue tracker
 
 [Link to GitHub](https://github.com/darkorg69/better-punching/issues)
