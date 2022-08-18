@@ -3,7 +3,7 @@ package darkorg.betterpunching.util;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 
-public class BlockUtil {
+public class StateUtil {
     public static boolean isCactus(BlockState state) {
         return state.getMaterial() == Material.CACTUS;
     }

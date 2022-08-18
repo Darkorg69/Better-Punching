@@ -1,9 +1,5 @@
 {
   "type": "minecraft:crafting_shaped",
-  "pattern": [
-    "##",
-    "/ "
-  ],
   "key": {
     "#": {
       "item": "minecraft:flint"
@@ -12,6 +8,10 @@
       "item": "minecraft:stick"
     }
   },
+  "pattern": [
+    "##",
+    "/ "
+  ],
   "result": {
     "item": "betterpunching:flint_pick"
   }
