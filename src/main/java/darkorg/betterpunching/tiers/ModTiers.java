@@ -1,10 +1,52 @@
 package darkorg.betterpunching.tiers;
 
-import net.minecraft.tags.BlockTags;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraftforge.common.ForgeTier;
+import net.minecraft.item.IItemTier;
+import net.minecraft.item.Items;
+import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.util.LazyValue;
 
-public class ModTiers {
-    public static final ForgeTier FLINT = new ForgeTier(1, 65, 4.0F, 1.0F, 5, BlockTags.NEEDS_STONE_TOOL, () -> Ingredient.of(Items.FLINT));
+import java.util.function.Supplier;
+
+public enum ModTiers implements IItemTier {
+    FLINT(1, 65, 4.0F, 1.0F, 5, () -> Ingredient.of(Items.FLINT));
+
+    private final int level;
+    private final int uses;
+    private final float speed;
+    private final float damage;
+    private final int enchantmentValue;
+    private final LazyValue<Ingredient> repairIngredient;
+
+    ModTiers(int pLevel, int pUses, float pSpeed, float pDamage, int pEnchantmentValue, Supplier<Ingredient> pRepairIngredient) {
+        this.level = pLevel;
+        this.uses = pUses;
+        this.speed = pSpeed;
+        this.damage = pDamage;
+        this.enchantmentValue = pEnchantmentValue;
+        this.repairIngredient = new LazyValue<>(pRepairIngredient);
+    }
+
+    public int getUses() {
+        return this.uses;
+    }
+
+    public float getSpeed() {
+        return this.speed;
+    }
+
+    public float getAttackDamageBonus() {
+        return this.damage;
+    }
+
+    public int getLevel() {
+        return this.level;
+    }
+
+    public int getEnchantmentValue() {
+        return this.enchantmentValue;
+    }
+
+    public Ingredient getRepairIngredient() {
+        return this.repairIngredient.get();
+    }
 }

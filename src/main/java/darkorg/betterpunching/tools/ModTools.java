@@ -2,11 +2,11 @@ package darkorg.betterpunching.tools;
 
 import darkorg.betterpunching.BetterPunching;
 import darkorg.betterpunching.tiers.ModTiers;
-import net.minecraft.world.item.*;
+import net.minecraft.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
-import net.minecraftforge.registries.RegistryObject;
 
 public class ModTools {
     public static final DeferredRegister<Item> TOOLS = DeferredRegister.create(ForgeRegistries.ITEMS, BetterPunching.MOD_ID);

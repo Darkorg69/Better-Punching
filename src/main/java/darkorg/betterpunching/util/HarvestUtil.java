@@ -1,7 +1,7 @@
 package darkorg.betterpunching.util;
 
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.block.BlockState;
+import net.minecraft.item.ItemStack;
 
 public class HarvestUtil {
     public static boolean isCorrectTool(ItemStack stack, BlockState state) {

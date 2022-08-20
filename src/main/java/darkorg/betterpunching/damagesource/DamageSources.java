@@ -1,6 +1,6 @@
 package darkorg.betterpunching.damagesource;
 
-import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.util.DamageSource;
 
 public class DamageSources {
     public static final DamageSource SPLINTER = new DamageSource("splinter").setScalesWithDifficulty();
