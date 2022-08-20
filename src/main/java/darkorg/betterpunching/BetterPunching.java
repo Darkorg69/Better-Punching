@@ -1,15 +1,14 @@
 package darkorg.betterpunching;
 
-import darkorg.betterpunching.setup.Config;
-import darkorg.betterpunching.setup.Events;
-import darkorg.betterpunching.setup.Registry;
+import darkorg.betterpunching.setup.ConfigHandler;
+import darkorg.betterpunching.setup.EventHandler;
+import darkorg.betterpunching.setup.RegistryHandler;
 import darkorg.betterpunching.tools.ModTools;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,13 +16,16 @@ import org.jetbrains.annotations.NotNull;
 public class BetterPunching {
     public static final String MOD_ID = "betterpunching";
 
+    IEventBus eventBus = MinecraftForge.EVENT_BUS;
+    IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
     public BetterPunching() {
-        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-        Config.init();
-        Registry.init(bus);
-        Events.init();
-        bus.addListener(this::setup);
-        MinecraftForge.EVENT_BUS.register(this);
+        ConfigHandler.init();
+
+        RegistryHandler.init(modEventBus);
+
+        EventHandler.init(eventBus);
+        eventBus.register(this);
     }
 
     public static final CreativeModeTab TAB_BETTER_PUNCHING = new CreativeModeTab("better_punching") {
@@ -32,7 +34,4 @@ public class BetterPunching {
             return new ItemStack(ModTools.FLINT_HATCHET.get());
         }
     };
-
-    private void setup(final FMLCommonSetupEvent event) {
-    }
 }
