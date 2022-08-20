@@ -4,6 +4,10 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Material;
 
 public class StateUtil {
+    public static boolean isSnowLayer(BlockState state) {
+        return state.getMaterial() == Material.TOP_SNOW || state.getMaterial() == Material.POWDER_SNOW;
+    }
+
     public static boolean isCactus(BlockState state) {
         return state.getMaterial() == Material.CACTUS;
     }
