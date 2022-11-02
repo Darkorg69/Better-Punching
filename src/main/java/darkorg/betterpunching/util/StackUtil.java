@@ -5,7 +5,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.ToolActions;
 
 public class StackUtil {
-    public static boolean canChopWood(ItemStack stack) {
-        return stack.getItem() instanceof AxeItem || stack.canPerformAction(ToolActions.AXE_DIG);
+    public static boolean canHarvestWood(ItemStack pItemStack) {
+        return pItemStack.getItem() instanceof AxeItem || ToolActions.DEFAULT_AXE_ACTIONS.stream().anyMatch(pItemStack::canPerformAction);
     }
 }
