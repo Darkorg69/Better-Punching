@@ -1,43 +1,38 @@
 package darkorg.betterpunching.util;
 
-import darkorg.betterpunching.damagesource.DamageSources;
-import darkorg.betterpunching.effect.ModEffects;
-import darkorg.betterpunching.setup.ConfigHandler;
+import darkorg.betterpunching.config.ServerConfig;
+import darkorg.betterpunching.registry.ModDamageSources;
+import darkorg.betterpunching.registry.ModEffects;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class PlayerUtil {
-    public static void applyWrongToolPenalty(Player player) {
-        hurtFists(player);
-        applyPenaltyEffects(player);
-    }
-
     public static void applySplinterPenalty(Player player) {
-        applySplinterEffect(player);
-        applyWrongToolPenalty(player);
+        addSplinterEffect(player);
+        applyInvalidPunch(player);
     }
 
     public static void applyBleedingPenalty(Player player) {
-        applyBleedingEffect(player);
-        applyWrongToolPenalty(player);
+        addBleedingEffect(player);
+        applyInvalidPunch(player);
     }
 
-    private static void hurtFists(@NotNull Player player) {
-        player.hurt(DamageSources.INVALID_PUNCHING, ConfigHandler.wrongToolDamage.get().floatValue());
+    public static void applyInvalidPunch(Player pPlayer) {
+        pPlayer.hurt(ModDamageSources.INVALID_PUNCHING, ServerConfig.invalidPunchDamage.get().floatValue());
+        addWeaknessAndMiningFatigue(pPlayer);
     }
 
-    private static void applySplinterEffect(@NotNull Player player) {
-        player.addEffect(new MobEffectInstance(ModEffects.SPLINTER.get(), ConfigHandler.splinterDuration.get() * 20, ConfigHandler.splinterAmplifier.get(), false, false, true));
+    public static void addSplinterEffect(Player pPlayer) {
+        pPlayer.addEffect(new MobEffectInstance(ModEffects.SPLINTER.get(), ServerConfig.splinterDuration.get() * 20, ServerConfig.splinterAmplifier.get(), false, false, true));
     }
 
-    private static void applyBleedingEffect(@NotNull Player player) {
-        player.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(), ConfigHandler.bleedingDuration.get() * 20, ConfigHandler.bleedingAmplifier.get(), false, false, true));
+    public static void addBleedingEffect(Player pPlayer) {
+        pPlayer.addEffect(new MobEffectInstance(ModEffects.BLEEDING.get(), ServerConfig.bleedingDuration.get() * 20, ServerConfig.bleedingAmplifier.get(), false, false, true));
     }
 
-    private static void applyPenaltyEffects(@NotNull Player player) {
-        player.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, ConfigHandler.weaknessDuration.get() * 20, ConfigHandler.weaknessAmplifier.get(), false, false, true));
-        player.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, ConfigHandler.miningFatigueDuration.get() * 20, ConfigHandler.miningFatigueAmplifier.get(), false, false, true));
+    public static void addWeaknessAndMiningFatigue(Player pPlayer) {
+        pPlayer.addEffect(new MobEffectInstance(MobEffects.WEAKNESS, ServerConfig.weaknessDuration.get() * 20, ServerConfig.weaknessAmplifier.get(), false, false, true));
+        pPlayer.addEffect(new MobEffectInstance(MobEffects.DIG_SLOWDOWN, ServerConfig.miningFatigueDuration.get() * 20, ServerConfig.miningFatigueAmplifier.get(), false, false, true));
     }
 }
