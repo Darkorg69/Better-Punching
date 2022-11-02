@@ -2,11 +2,11 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "betterpunching:flint_hatchet"
+      "betterpunching:flint_pick"
     ]
   },
   "criteria": {
-    "has_material": {
+    "has_flint": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "betterpunching:flint_hatchet"
+        "recipe": "betterpunching:flint_pick"
       }
     }
   },
   "requirements": [
     [
-      "has_material",
+      "has_flint",
       "has_the_recipe"
     ]
   ]

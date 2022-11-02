@@ -5,7 +5,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ToolType;
 
 public class StackUtil {
-    public static boolean canChopWood(ItemStack stack) {
-        return stack.getItem() instanceof AxeItem || stack.getToolTypes().contains(ToolType.AXE);
+    public static boolean canHarvestWood(ItemStack pItemStack) {
+        return pItemStack.getItem() instanceof AxeItem || pItemStack.getToolTypes().contains(ToolType.AXE);
     }
 }
