@@ -29,5 +29,5 @@ This mod is for **FORGE** only!
 * The **Flint Pick** is a small pickaxe. It has 50% less durability compared to a Stone Pickaxe.  
   ![Flint Pick](https://i.ibb.co/gwB5cBw/pick.png)
 * The **Flint Dagger** is a lightweight weapon. It has 40% less damage, 50% less durability and 100% more attack speed
-  than a Stone Sword.
+  than a Stone Sword.  
   ![Flint Dagger](https://i.ibb.co/d5FCQRC/dagger.png)
