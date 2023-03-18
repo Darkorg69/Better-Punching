@@ -5,6 +5,7 @@ import darkorg.betterpunching.data.ModItemModelProvider;
 import darkorg.betterpunching.data.ModLanguageProvider;
 import darkorg.betterpunching.data.ModRecipeProvider;
 import net.minecraft.data.DataGenerator;
+import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
@@ -14,11 +15,14 @@ public class ModEvents {
     @SubscribeEvent
     public static void gatherDataEvent(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
+        ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        generator.addProvider(new ModRecipeProvider(generator));
+        ModLanguageProvider en_us = new ModLanguageProvider(generator);
+        ModRecipeProvider modRecipeProvider = new ModRecipeProvider(generator);
+        ModItemModelProvider modItemModelProvider = new ModItemModelProvider(generator, existingFileHelper);
 
-        generator.addProvider(new ModLanguageProvider(generator, BetterPunching.MOD_ID, "en_us"));
-
-        generator.addProvider(new ModItemModelProvider(generator, BetterPunching.MOD_ID, event.getExistingFileHelper()));
+        generator.addProvider(en_us);
+        generator.addProvider(modRecipeProvider);
+        generator.addProvider(modItemModelProvider);
     }
 }

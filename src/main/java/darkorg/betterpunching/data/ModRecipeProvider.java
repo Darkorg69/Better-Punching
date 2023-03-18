@@ -15,11 +15,11 @@ public class ModRecipeProvider extends RecipeProvider {
     }
 
     @Override
-    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> finishedRecipeConsumer) {
-        ShapedRecipeBuilder.shaped(ModItems.FLINT_DAGGER.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern(" #").pattern("/ ").unlockedBy("has_flint", has(Items.FLINT)).save(finishedRecipeConsumer);
-        ShapedRecipeBuilder.shaped(ModItems.FLINT_PICK.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("##").pattern("/ ").unlockedBy("has_flint", has(Items.FLINT)).save(finishedRecipeConsumer);
-        ShapedRecipeBuilder.shaped(ModItems.FLINT_SPADE.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("#").pattern("/").unlockedBy("has_flint", has(Items.FLINT)).save(finishedRecipeConsumer);
-        ShapedRecipeBuilder.shaped(ModItems.FLINT_HATCHET.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("##").pattern("/#").unlockedBy("has_flint", has(Items.FLINT)).save(finishedRecipeConsumer);
+    protected void buildShapelessRecipes(Consumer<IFinishedRecipe> pFinishedRecipeConsumer) {
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_DAGGER.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern(" #").pattern("/ ").unlockedBy("has_flint", has(Items.FLINT)).save(pFinishedRecipeConsumer);
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_PICK.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("##").pattern("/ ").unlockedBy("has_flint", has(Items.FLINT)).save(pFinishedRecipeConsumer);
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_SPADE.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("#").pattern("/").unlockedBy("has_flint", has(Items.FLINT)).save(pFinishedRecipeConsumer);
+        ShapedRecipeBuilder.shaped(ModItems.FLINT_HATCHET.get()).define('#', Items.FLINT).define('/', Items.STICK).pattern("##").pattern("/#").unlockedBy("has_flint", has(Items.FLINT)).save(pFinishedRecipeConsumer);
     }
 }
 

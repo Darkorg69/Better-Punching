@@ -22,12 +22,16 @@ This mod is for **FORGE** only!
 
 ## Items
 
-* The **Flint Hatchet** is a smaller axe. It has 50% less durability and damage compared to a Stone Axe.  
+* The **Flint Hatchet** is a smaller axe.  
+It has 50% less durability and damage compared to a Stone Axe.  
   ![Flint Hatchet](https://i.ibb.co/KX6sWSJ/hatchet.png)
-* The **Flint Spade** is a small shovel. It has 50% less durability compared to a Stone Shovel.  
+* The **Flint Spade** is a small shovel.  
+It has 50% less durability compared to a Stone Shovel.  
   ![Flint Spade](https://i.ibb.co/bsPGMQj/spade.png)
-* The **Flint Pick** is a small pickaxe. It has 50% less durability compared to a Stone Pickaxe.  
+* The **Flint Pick** is a small pickaxe.  
+It has 50% less durability compared to a Stone Pickaxe.  
   ![Flint Pick](https://i.ibb.co/gwB5cBw/pick.png)
-* The **Flint Dagger** is a lightweight weapon. It has 40% less damage, 50% less durability and 100% more attack speed
+* The **Flint Dagger** is a lightweight weapon.  
+It has 40% less damage, 50% less durability and 100% more attack speed
   than a Stone Sword.  
   ![Flint Dagger](https://i.ibb.co/d5FCQRC/dagger.png)

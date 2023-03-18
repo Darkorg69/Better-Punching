@@ -1,0 +1,14 @@
+{
+  "required": true,
+  "minVersion": "0.8.4",
+  "package": "darkorg.betterpunching.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinAxeItem",
+    "MixinHoeItem"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "mixins.betterleveling.refmap.json"
+}

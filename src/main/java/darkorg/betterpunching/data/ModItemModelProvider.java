@@ -1,31 +1,38 @@
 package darkorg.betterpunching.data;
 
+import darkorg.betterpunching.BetterPunching;
 import darkorg.betterpunching.registry.ModItems;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.item.Item;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.fml.RegistryObject;
 
 public class ModItemModelProvider extends ItemModelProvider {
-    public ModItemModelProvider(DataGenerator generator, String modId, ExistingFileHelper existingFileHelper) {
-        super(generator, modId, existingFileHelper);
-    }
+    private final ModelFile handheld = getExistingFile(mcLoc(ITEM_FOLDER + "/handheld"));
 
-    ModelFile itemHandheld = getExistingFile(mcLoc("item/handheld"));
+    public ModItemModelProvider(DataGenerator generator, ExistingFileHelper existingFileHelper) {
+        super(generator, BetterPunching.MOD_ID, existingFileHelper);
+    }
 
     @Override
     protected void registerModels() {
-        buildHandheldModel(ModItems.FLINT_DAGGER.get().toString(), ModItems.FLINT_DAGGER.get().toString());
-        buildHandheldModel(ModItems.FLINT_HATCHET.get().toString(), ModItems.FLINT_HATCHET.get().toString());
-        buildHandheldModel(ModItems.FLINT_PICK.get().toString(), ModItems.FLINT_PICK.get().toString());
-        buildHandheldModel(ModItems.FLINT_SPADE.get().toString(), ModItems.FLINT_SPADE.get().toString());
+        itemHandheld(ModItems.FLINT_DAGGER);
+        itemHandheld(ModItems.FLINT_HATCHET);
+        itemHandheld(ModItems.FLINT_PICK);
+        itemHandheld(ModItems.FLINT_SPADE);
     }
 
-    private void buildHandheldModel(String itemName, String textureLocation) {
-        buildItemModel(itemName, itemHandheld, textureLocation);
+    private void itemHandheld(RegistryObject<Item> pRegistryObject) {
+        buildItemHandheld(pRegistryObject.get());
     }
 
-    private void buildItemModel(String itemName, ModelFile modelFile, String textureLocation) {
-        getBuilder(itemName).parent(modelFile).texture("layer0", "item/" + textureLocation);
+    private void buildItemHandheld(Item pItem) {
+        buildItemModel(pItem.toString(), handheld);
+    }
+
+    private void buildItemModel(String pName, ModelFile pModel) {
+        getBuilder(pName).parent(pModel).texture("layer0", ITEM_FOLDER + "/" + pName);
     }
 }

@@ -1,27 +1,24 @@
 package darkorg.betterpunching.effect;
 
-import darkorg.betterpunching.config.ServerConfig;
-import darkorg.betterpunching.registry.ModDamageSources;
+import darkorg.betterpunching.config.ModConfig;
+import darkorg.betterpunching.registry.DamageSources;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectType;
 
 public class SplinterEffect extends Effect {
-    public SplinterEffect(EffectType pEffectType, int pColor) {
-        super(pEffectType, pColor);
+    public SplinterEffect() {
+        super(EffectType.HARMFUL, 0xA3713F);
     }
 
     @Override
     public void applyEffectTick(LivingEntity pLivingEntity, int pAmplifier) {
-        pLivingEntity.hurt(ModDamageSources.SPLINTER, ServerConfig.splinterDamage.get().floatValue() * (pAmplifier + 1));
+        pLivingEntity.hurt(DamageSources.SPLINTER, ModConfig.EFFECTS.splinterDamage.get().floatValue() * (pAmplifier + 1));
     }
 
     @Override
     public boolean isDurationEffectTick(int pDuration, int pAmplifier) {
-        int i = 50 >> pAmplifier;
-        if (i > 0) {
-            return pDuration % i == 0;
-        }
-        return true;
+        int tickRate = ModConfig.EFFECTS.splinterTickRate.get() >> pAmplifier;
+        return tickRate == 0 || pDuration % tickRate == 0;
     }
 }

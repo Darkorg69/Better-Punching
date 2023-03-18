@@ -2,8 +2,8 @@ package darkorg.betterpunching.registry;
 
 import darkorg.betterpunching.BetterPunching;
 import net.minecraft.item.*;
-import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -15,7 +15,7 @@ public class ModItems {
     public static final RegistryObject<Item> FLINT_PICK = ITEMS.register("flint_pick", () -> new PickaxeItem(ModItemTier.FLINT, 1, -2.8F, (new Item.Properties()).tab(ItemGroup.TAB_TOOLS)));
     public static final RegistryObject<Item> FLINT_HATCHET = ITEMS.register("flint_hatchet", () -> new AxeItem(ModItemTier.FLINT, 2.5F, -3.2F, (new Item.Properties()).tab(ItemGroup.TAB_TOOLS)));
 
-    public static void init(IEventBus eventBus) {
-        ITEMS.register(eventBus);
+    public static void init() {
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 }
